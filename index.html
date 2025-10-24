@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Simulador de Importação - Abrantes Investimentos</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <h1 class="brand">Abrantes Investimentos</h1>
+    <nav class="nav">
+      <button class="tab-btn active" data-tab="simulador">Simulador</button>
+      <button class="tab-btn" data-tab="about">Sobre</button>
+      <button class="tab-btn" data-tab="contact">Contacto</button>
+    </nav>
+  </div>
+</header>
+
+<main class="page">
+  <!-- Simulador -->
+  <section id="simulador" class="tab active">
+    <div class="card">
+      <h2>Simulador de Importação de Viaturas — Moçambique</h2>
+      <p class="lead">Cole o link do veículo ou insira o Valor CIF manualmente.</p>
+
+      <form id="simuladorForm">
+        <div class="row">
+          <label for="linkVeiculo">Link do Veículo (Be Forward / SBT Japan)</label>
+          <input id="linkVeiculo" type="text" placeholder="Cole o link aqui">
+          <button type="button" id="extrairPrecoBtn">Extrair Preço</button>
+        </div>
+
+        <div class="row">
+          <label for="valor">Valor CIF (USD)</label>
+          <input id="valor" type="number" placeholder="Ex: 10000" min="0" step="0.01" required>
+        </div>
+
+        <div class="row two">
+          <div class="col">
+            <label for="tipo">Tipo de Viatura</label>
+            <select id="tipo">
+              <option value="turismo">Turismo</option>
+              <option value="pickup">Pickup</option>
+              <option value="minibus">Minibus</option>
+              <option value="camiao">Camião</option>
+            </select>
+          </div>
+
+          <div class="col">
+            <label for="cilindrada">Cilindrada (cc)</label>
+            <select id="cilindrada">
+              <option value="<=1500">Menor que 1500cc</option>
+              <option value="1501-3000">1500cc - 3000cc</option>
+              <option value=">3000">Maior que 3000cc</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row two">
+          <div class="col">
+            <label for="moeda">Moeda</label>
+            <select id="moeda">
+              <option value="USD">USD</option>
+              <option value="MZN">MZN</option>
+            </select>
+          </div>
+
+          <div class="col">
+            <label for="ice">ICE (%)</label>
+            <select id="ice">
+              <option value="0">0%</option>
+              <option value="5">5%</option>
+              <option value="10">10%</option>
+              <option value="15">15%</option>
+              <option value="25">25%</option>
+              <option value="30">30%</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row">
+          <button type="button" id="calcBtn">Calcular</button>
+        </div>
+      </form>
+
+      <div id="resultado" class="resultado" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <section id="about" class="tab">
+    <div class="card small">
+      <h2>Sobre</h2>
+      <p>Este simulador fornece estimativas de impostos para veículos importados para Moçambique.</p>
+    </div>
+  </section>
+
+  <section id="contact" class="tab">
+    <div class="card small">
+      <h2>Contacto</h2>
+      <p>Email: <strong>contato@abrantesinvestimentos.co.mz</strong></p>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>© <span id="ano"></span> Abrantes Investimentos</div>
+    <div class="assinatura">Desenvolvido por <strong>Abrantes Investimentos</strong></div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script>document.getElementById('ano').textContent = new Date().getFullYear();</script>
+</body>
+</html>
